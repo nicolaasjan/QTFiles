@@ -52,3 +52,5 @@ Dummy DLL generated using [dummy-dll-generator](https://github.com/ykhwong/dummy
 [More Info from hydrogenaudio](https://wiki.hydrogenaud.io/index.php?title=EAC_and_QAAC)
 
 My recommended GUI encoder that can use qaac: [fre:ac](https://www.freac.org)
+
+For converting FLAC files, you also need [libflac.dll](https://github.com/xiph/flac/releases).
