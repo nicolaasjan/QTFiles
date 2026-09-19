@@ -19,9 +19,6 @@ The "icudt62.dll" aka the International Components for Unicode data file inside 
 
 Dummy DLL generated using [dummy-dll-generator](https://github.com/ykhwong/dummy-dll-generator).
 
-## Microsoft Visual C++ Runtime
-If you have it, no need to copy msvcp140.dll and vcruntime140.dll. If it's not working, install Visual C++ Redistributable for Visual Studio 2015 or download QTfiles-msvc.7z or QTfiles64-msvc.7z and place the dll besides the qaac executable file.
-
 ### Directory Tree
 
 * For 32-bit
