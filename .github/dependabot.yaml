@@ -3,5 +3,5 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: monthly
-      time: '11:07'
+      interval: dayly
+      time: '17:30'
