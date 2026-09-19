@@ -155,7 +155,6 @@ jobs:
   release:
     permissions:
       contents: write
-      variables: write
     needs: [check-and-download, extract, archive]
     runs-on: ubuntu-latest
     steps:
@@ -188,5 +187,6 @@ jobs:
           gh variable set UUID_WIN64 < win64.txt
           gh variable set UUID_WIN32 < win32.txt
         env:
-          GH_TOKEN: ${{ github.token }}
+          
+          GH_TOKEN: ${{ secrets.GH_PAT }}
           GH_REPO: ${{ github.repository }}
