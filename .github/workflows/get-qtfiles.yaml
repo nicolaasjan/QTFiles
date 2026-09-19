@@ -141,6 +141,7 @@ jobs:
         with:
           name: ${{ matrix.arch }}-MSVC
           path: ${{ matrix.arch }}-MSVC
+        continue-on-error: true
           
       - name: Download ${{ matrix.arch }} original ICU
         uses: actions/download-artifact@v8
