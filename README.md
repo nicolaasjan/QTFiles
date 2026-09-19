@@ -2,13 +2,13 @@
 
 Apple's [Core Audio AAC encoder](https://wiki.hydrogenaud.io/index.php?title=Apple_AAC) for [qaac](https://github.com/nu774/qaac).
 
-This is the files required for qaac to encode without installing iTunes, QuickTime, or AppleApplicationSupport.msi.
+These are the files required for qaac to encode without installing iTunes, QuickTime, or AppleApplicationSupport.msi.
 
 Extracted directly from the iTunes installer using the [makeportable](https://github.com/nu774/makeportable) script from the [qaac's site](https://sites.google.com/site/qaacpage) using [GitHub Actions](https://github.com/features/actions).
 
 ## Installation
 
-1. [Download](https://github.com/AnimMouse/QTFiles/releases) the latest QTfiles.7z (if you are using qaac.exe) or QTfiles64.7z (if you are using qaac64.exe).
+1. [Download](https://github.com/nicolaasjan/QTFiles/releases) the latest QTfiles.7z (if you are using qaac.exe) or QTfiles64.7z (if you are using qaac64.exe).
 2. Place the QTfiles folder if you are using qaac.exe or QTfiles64 folder if you are using qaac64.exe besides the qaac executable file.
 3. Finished. qaac is now portable.
 
@@ -44,11 +44,11 @@ Dummy DLL generated using [dummy-dll-generator](https://github.com/ykhwong/dummy
     * libicuuc.dll
     * objc.dll
 
-### More Infos
+### More Information
 [Using qaac without iTunes](https://github.com/wieslawsoltes/BatchEncoder/wiki/Tutorial-Using-qaac-without-iTunes)
 
 [Apple AAC](https://wiki.hydrogenaud.io/index.php?title=Apple_AAC)
 
-[More Infos from hydrogenaudio](https://wiki.hydrogenaud.io/index.php?title=EAC_and_QAAC)
+[More Info from hydrogenaudio](https://wiki.hydrogenaud.io/index.php?title=EAC_and_QAAC)
 
 My recommended GUI encoder that can use qaac: [fre:ac](https://www.freac.org)
