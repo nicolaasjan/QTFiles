@@ -107,17 +107,6 @@ jobs:
           path: icudt${{ steps.icu.outputs.version }}.dll
           retention-days: 1
           
-      - name: Upload ${{ matrix.arch }} Visual Studio Runtime
-        uses: actions/upload-artifact@v7
-        with:
-          name: ${{ matrix.arch }}-MSVC
-          path: |
-            ${{ matrix.arch }}/concrt140.dll
-            ${{ matrix.arch }}/msvc*.dll
-            ${{ matrix.arch }}/ucrtbase.dll
-            ${{ matrix.arch }}/vc*.dll
-          retention-days: 1
-          
     outputs:
       itunes-version: ${{ steps.itunes.outputs.version }}
       icu-version: ${{ steps.icu.outputs.version }}
@@ -136,13 +125,6 @@ jobs:
           name: ${{ matrix.arch }}
           path: ${{ matrix.arch }}
           
-      - name: Download ${{ matrix.arch }} Visual Studio Runtime
-        uses: actions/download-artifact@v8
-        with:
-          name: ${{ matrix.arch }}-MSVC
-          path: ${{ matrix.arch }}-MSVC
-        continue-on-error: true
-          
       - name: Download ${{ matrix.arch }} original ICU
         uses: actions/download-artifact@v8
         with:
@@ -150,9 +132,6 @@ jobs:
           
       - name: 7zip ${{ matrix.arch }}
         run: 7z a -mx=9 ${{ matrix.arch }}.7z ./${{ matrix.arch }}/*
-        
-      - name: 7zip ${{ matrix.arch }} Visual Studio Runtime
-        run: 7z a -mx=9 ${{ matrix.arch }}-MSVC.7z ./${{ matrix.arch }}-MSVC/*
         
       - name: Zstd ${{ matrix.arch }} original ICU
         run: zstd -19 icudt${{ needs.extract.outputs.icu-version }}.dll -o ${{ matrix.arch }}-icudt${{ needs.extract.outputs.icu-version }}.dll.zst
@@ -162,14 +141,6 @@ jobs:
         with:
           name: 7z-${{ matrix.arch }}
           path: ${{ matrix.arch }}.7z
-          retention-days: 1
-          compression-level: 0
-          
-      - name: Upload ${{ matrix.arch }} Visual Studio Runtime
-        uses: actions/upload-artifact@v7
-        with:
-          name: 7z-${{ matrix.arch }}-MSVC
-          path: ${{ matrix.arch }}-MSVC.7z
           retention-days: 1
           compression-level: 0
           
@@ -197,7 +168,6 @@ jobs:
         run: |
           gh release create "v${{ needs.extract.outputs.itunes-version }}" \
           {QTfiles64,QTfiles}.7z \
-          {QTfiles64,QTfiles}-MSVC.7z \
           {QTfiles64,QTfiles}-icudt${{ needs.extract.outputs.icu-version }}.dll.zst \
           -n "Extracted from the version ${{ needs.extract.outputs.itunes-version }} of Windows iTunes.
           International Components for Unicode data version ${{ needs.extract.outputs.icu-version }}" \
